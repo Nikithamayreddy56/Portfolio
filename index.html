@@ -3,142 +3,593 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>M Nikitha - .NET Developer Portfolio</title>
-  <link rel="icon" type="image/png" href="https://fav.farm/💻" />
+  <title>Nikitha Mayreddy | Senior .NET Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f0f4f8;
-      color: #333;
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to right, #2c3e50, #4ca1af);
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    header, section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      margin-bottom: 2rem;
     }
     header {
-      background: linear-gradient(to right, #4f46e5, #6366f1);
-      color: white;
-      padding: 2.5rem 1rem;
       text-align: center;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 3rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: 1.5px;
+      font-weight: 700;
     }
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      color: #d0d9e6;
       margin-top: 0;
+      font-weight: 400;
     }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 1.2rem 0;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
-    section h2 {
-      color: #f39c12;
-      font-weight: bold;
-    }
-    section p {
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-    h2 {
-      color: #4f46e5;
-      margin-top: 0;
-    }
-    a {
-      color: #4f46e5;
+    nav a {
+      color: #fff;
       text-decoration: none;
+      font-size: 1.05rem;
+      transition: color 0.3s ease;
     }
-    a:hover {
+    nav a:hover {
+      color: #ffcc00;
       text-decoration: underline;
+    }
+    h2.section-title {
+      font-size: 2rem;
+      border-bottom: 3px solid #ffcc00;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+    }
+    p, li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #e6e9f0;
     }
     ul {
       padding-left: 1.5rem;
+      margin-top: 0.5rem;
     }
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
     }
-    .contact a {
-      display: block;
-      margin-bottom: 0.3rem;
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: inset 0 0 6px rgba(255 255 255 / 0.15);
     }
+    a.button, a.button:visited {
+      display: inline-block;
+      background: #ffcc00;
+      color: #2c3e50;
+      padding: 0.6rem 1.3rem;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 0.7rem;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+    a.button:hover {
+      background: #e6b800;
+    }
+    /* Skills & Certifications simplified style */
+    .skills-category {
+  margin-bottom: 2rem;
+}
+
+.skills-category h3 {
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  font-size: 1.3rem;
+  color: #facc15; /* bright yellow gold */
+  text-decoration: none; /* remove underline */
+}
+
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.skills-list li {
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: #e6e9f0;
+  text-decoration: none; /* remove underline */
+}
+
+/* bullet points before skills */
+.skills-list li::before {
+  content: "•";
+  color: #facc15;
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+ /* Education thumbnails container: use flex with no wrapping to keep side-by-side on wider screens */
+.edu-thumbnails {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: nowrap; /* prevent stacking on wide screens */
+}
+
+/* Individual education card */
+.edu-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  width: 320px; /* fixed width for consistent sizing */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  transition: background 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  user-select: none;
+  flex-shrink: 0; /* prevent shrinking to keep width */
+}
+
+/* Responsive: allow wrapping for smaller screens */
+@media (max-width: 700px) {
+  .edu-thumbnails {
+    flex-wrap: wrap;
+  }
+  .edu-thumb {
+    width: 90%;
+  }
+}
+
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right:0; bottom:0;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 9999;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #1e293b;
+      color: #e6e9f0;
+      max-width: 700px;
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 0 20px #ffcc00;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-content h3 {
+      margin-top: 0;
+      font-weight: 700;
+      border-bottom: 2px solid #ffcc00;
+      padding-bottom: 0.5rem;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px; right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 1.8rem;
+      color: #ffcc00;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    /* Experience & Projects clickable */
+    .exp-entry, .proj-entry {
+      cursor: pointer;
+      transition: background 0.25s ease;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .exp-entry:hover, .proj-entry:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .details-content {
+      margin-top: 1rem;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #ddd;
+      background: rgba(255 255 255 / 0.1);
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      box-shadow: inset 0 0 6px rgba(255 255 255 / 0.15);
+    }
+    /* Footer */
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
       font-size: 0.9rem;
-      color: #666;
+      color: #bbb;
+      background: rgba(0, 0, 0, 0.7);
+      font-weight: 500;
+      letter-spacing: 0.8px;
+    }
+    /* Responsive */
+    @media (max-width: 700px) {
+      .edu-thumbnails {
+        flex-direction: column;
+        align-items: center;
+      }
+      .edu-thumb {
+        width: 90%;
+      }
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .skills-list, .cert-list {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>M Nikitha</h1>
-    <p>Senior .NET Developer | Full-Stack Enthusiast | Azure Certified</p>
+    <h1>Nikitha Mayreddy</h1>
+    <p>Senior .NET Developer | Cloud & Microservices | React & Angular Enthusiast</p>
   </header>
 
-  <section>
-    <h2>👋 About Me</h2>
-    <p>I am a passionate developer with experience building full-stack applications using .NET Core, React, Angular, and cloud services. I enjoy solving real-world problems through clean code and scalable architecture. I'm actively working on new projects and will be updating this portfolio regularly — stay tuned!</p>
-  </section>
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <section>
-    <h2>🛠️ Skills</h2>
-    <ul>
-      <li>ASP.NET Core, MVC, Razor Pages, Web API</li>
-      <li>React, Angular, Flutter</li>
-      <li>Entity Framework, SQL Server</li>
-      <li>Docker, Kubernetes, Azure (AZ-900 Certified)</li>
-      <li>CI/CD with Azure DevOps, Jenkins, GitHub Actions</li>
-      <li>OAuth 2.0, JWT Authentication, REST APIs</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>💻 Projects</h2>
-    <ul>
-      <li>
-        <strong>Expense Tracker API</strong> — ASP.NET Core REST API with OAuth2 and SQL Server.<br/>
-        <a href="https://github.com/Nikithamayreddy56/ExpenseTrackerApp" target="_blank">View on GitHub</a>
-      </li>
-      <li>
-        <strong>Online Book Store</strong> — Full-stack .NET Core + React app with Stripe integration.<br/>
-        <span style="display: inline-block; background: #ffe599; color: #5a4b00; padding: 4px 8px; border-radius: 5px; font-size: 0.9rem;">
-          🚧 In Progress – Coming Soon!
-        </span>
-      </li>
-      <li>
-        <strong>🚧 Upcoming: Habit Tracker Mobile App</strong><br/>
-        Cross-platform mobile app using Flutter and ASP.NET Core backend.<br/>
-        Features: Habit tracking, reminders, visual progress, secure auth.<br/>
-        <strong>Launch:</strong> End of July 2025 |
-        <a href="https://github.com/Nikithamayreddy56/HabitTracker-App" target="_blank">Follow on GitHub</a>
-      </li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>📄 Resume</h2>
+  <section id="about">
+    <h2 class="section-title">👋 About Me</h2>
     <p>
-      <a href="https://github.com/Nikithamayreddy56/Resume/blob/main/Nikitha_Mayreddy_Resume.pdf" target="_blank">Download My Resume (PDF)</a>
+      Detail-oriented .NET Developer with over 5 years of practical experience designing, developing, and deploying scalable applications using C# and .NET technologies. My experience includes professional employment, freelance projects, and academic initiatives, focusing on API development, authentication, database design, and clean code. Passionate about continuous learning and delivering high-quality software solutions.
     </p>
-    <li>
-  <strong>Portfolio Website</strong> — A personal website showcasing my background, skills, and projects.<br/>
-  <a href="https://nikithamayreddy56.github.io/Portfolio/" target="_blank">🌐 View My Portfolio Website</a>
-</li>
-
   </section>
 
-  <section class="contact">
-    <h2>📬 Contact</h2>
-    <a href="mailto:nikithamayreddy56@gmail.com">nikithamayreddy56@gmail.com</a>
-    <a href="https://www.linkedin.com/in/nikitha-mayreddy-b80055356" target="_blank">LinkedIn Profile</a>
-    <a href="https://github.com/Nikithamayreddy56" target="_blank">GitHub Profile</a>
+ <section id="skills">
+  <h2 class="section-title">🛠️ Skills</h2>
+  <div class="skills-category">
+    <h3>Programming Languages</h3>
+    <ul class="skills-list">
+      <li>C#, SQL, Python, JavaScript, HTML, CSS, XML</li>
+    </ul>
+  </div>
+  <div class="skills-category">
+    <h3>Frameworks & Technologies</h3>
+    <ul class="skills-list">
+      <li>ASP.NET Core, ASP.NET MVC, ADO.NET, Entity Framework, SSIS</li>
+    </ul>
+  </div>
+  <div class="skills-category">
+    <h3>Tools & Platforms</h3>
+    <ul class="skills-list">
+      <li>Git, Swagger, Postman, Visual Studio, Azure DevOps</li>
+    </ul>
+  </div>
+  <div class="skills-category">
+    <h3>Cloud Platforms</h3>
+    <ul class="skills-list">
+      <li>Microsoft Azure, Amazon Web Services (AWS)</li>
+    </ul>
+  </div>
+  <div class="skills-category">
+    <h3>Database & ETL</h3>
+    <ul class="skills-list">
+      <li>SQL Server, T-SQL, SSIS, Data Modeling, Stored Procedures</li>
+    </ul>
+  </div>
+  <div class="skills-category">
+    <h3>Scripting & Data Analysis</h3>
+    <ul class="skills-list">
+      <li>Python (Pandas, NumPy), SQL Queries, Excel (Pivot Tables, VLOOKUP)</li>
+    </ul>
+  </div>
+  <div class="skills-category">
+    <h3>DevOps & CI/CD</h3>
+    <ul class="skills-list">
+      <li>Azure DevOps Pipelines, Git, Build Automation</li>
+    </ul>
+  </div>
+  <div class="skills-category">
+    <h3>Professional Skills</h3>
+    <ul class="skills-list">
+      <li>System Administration, Troubleshooting, Technical Documentation, Agile Team Collaboration</li>
+    </ul>
+  </div>
+</section>
+
+  <section id="education">
+    <h2 class="section-title">🎓 Education</h2>
+    <div class="edu-thumbnails">
+      <div class="edu-thumb" data-modal="modal-masters">
+        <h3>Master of Science in Computer Science</h3>
+        <p>Concordia University Wisconsin</p>
+        <p>Graduated: May 2025</p>
+      </div>
+      <div class="edu-thumb" data-modal="modal-bachelors">
+        <h3>Bachelor of Technology in Electronics & Communications</h3>
+        <p>Sri Indu Institute of Engineering and Technology</p>
+        <p>Graduated: Aug 2021</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+  <h2 class="section-title">📜 Certifications</h2>
+  <div class="cert-entry" data-modal="modal-az900" tabindex="0" role="button" style="cursor:pointer; margin-bottom: 1.5rem;">
+    Microsoft Certified: Azure Fundamentals (AZ-900)
+  </div>
+  <div class="cert-entry" data-modal="modal-sysadmin" tabindex="0" role="button" style="cursor:pointer; margin-bottom: 1.5rem;">
+    Career Essentials in System Administration
+  </div>
+  <div class="cert-entry" data-modal="modal-typist" tabindex="0" role="button" style="cursor:pointer; margin-bottom: 1.5rem;">
+    Certified Junior Grade & Lower-Level Typist
+  </div>
+  <div class="cert-entry" tabindex="0" role="button" style="cursor:pointer; margin-bottom: 1.5rem;">
+    Microsoft Certified: Azure Developer Associate (AZ-204) — In Progress (Targeting Nov 2025)
+  </div>
+</section>
+
+  <section id="experience">
+    <h2 class="section-title">💼 Experience</h2>
+    <div class="exp-entry" data-toggle="exp-capgemini" tabindex="0" role="button" aria-expanded="false" aria-controls="exp-capgemini-details">
+      <strong>Capgemini – Senior .NET Developer</strong> <em>(Aug 2022 – Aug 2023)</em>
+      <div id="exp-capgemini-details" class="details-content" hidden>
+        <ul>
+          <li>Built enterprise-grade .NET Core web applications and RESTful APIs with scalable architecture.</li>
+          <li>Led Azure DevOps CI/CD pipeline creation and deployment automation.</li>
+          <li>Worked on Kafka and RabbitMQ for event-driven microservices communication.</li>
+          <li>Containerized services using Docker and orchestrated with Kubernetes.</li>
+          <li>Improved application reliability and performance by 20% through testing and optimizations.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-entry" data-toggle="exp-freelance" tabindex="0" role="button" aria-expanded="false" aria-controls="exp-freelance-details">
+      <strong>Freelance Projects</strong> <em>(2023 – Present)</em>
+      <div id="exp-freelance-details" class="details-content" hidden>
+        <ul>
+          <li>Designed and deployed full-stack solutions with ASP.NET Core, React.js, Angular, and Azure services.</li>
+          <li>Developed offline-capable mobile apps using Flutter, Firebase, and SQLite.</li>
+          <li>Focused on clean, maintainable code and scalable architectures.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">🖥️ Projects</h2>
+
+    <div class="proj-entry" data-toggle="proj-habit" tabindex="0" role="button" aria-expanded="false" aria-controls="proj-habit-details">
+      <strong>Habit Tracker Mobile App</strong>
+      <div id="proj-habit-details" class="details-content" hidden>
+        <p><strong>Tech Stack:</strong> Flutter, Dart, ASP.NET Core REST API, Firebase (planned), SQLite</p>
+        <p>Built a cross-platform mobile app to help users build, monitor, and maintain daily habits with:</p>
+        <ul>
+          <li>User authentication and secure cloud syncing</li>
+          <li>Habit scheduling and daily reminders</li>
+          <li>Visual progress tracking and streak analytics</li>
+          <li>Offline support with seamless sync on reconnect</li>
+        </ul>
+        <p>Scheduled for MVP launch end of August 2025.</p>
+        <a href="https://github.com/Nikithamayreddy56/HabitTracker-App" target="_blank" class="button">View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-entry" data-toggle="proj-expense" tabindex="0" role="button" aria-expanded="false" aria-controls="proj-expense-details">
+      <strong>Expense Tracker API</strong>
+      <div id="proj-expense-details" class="details-content" hidden>
+        <p><strong>Tech Stack:</strong> ASP.NET Core Web API, EF Core, SQL Server, JWT Auth, Swagger, Postman</p>
+        <p>Developed a secure RESTful API backend to manage users' financial transactions with features including:</p>
+        <ul>
+          <li>Full CRUD operations on users, transactions, and categories</li>
+          <li>JWT-based authentication and authorization</li>
+          <li>Swagger integration for API documentation</li>
+          <li>Postman test suite for thorough API testing</li>
+        </ul>
+        <a href="https://github.com/Nikithamayreddy56/ExpenseTrackerApp" target="_blank" class="button">View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-entry" data-toggle="proj-bookstore" tabindex="0" role="button" aria-expanded="false" aria-controls="proj-bookstore-details">
+      <strong>Online Book Store Backend</strong>
+      <div id="proj-bookstore-details" class="details-content" hidden>
+        <p><strong>Tech Stack:</strong> ASP.NET Core Web API, EF Core, SQL Server, Repository Pattern, SOLID Principles</p>
+        <p>Designed and implemented a scalable e-commerce backend with features including:</p>
+        <ul>
+          <li>Management of books, orders, customers, and payments</li>
+          <li>Layered architecture enforcing SOLID principles and repository pattern</li>
+          <li>Server-side validation and pagination for product listings</li>
+          <li>Integration with payment gateway Stripe</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2 class="section-title">📄 Resume & Portfolio</h2>
+    <p><a href="https://github.com/Nikithamayreddy56/Resume/blob/main/Nikitha_Mayreddy_Resume.pdf" target="_blank" class="button">Download My Resume (PDF)</a></p>
+    <p><a href="https://nikithamayreddy56.github.io/Portfolio/" target="_blank" class="button">Visit My Portfolio Website</a></p>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">📬 Contact</h2>
+    <p>Email: <a href="mailto:nikithamayreddy56@gmail.com" style="color:#ffcc00;">nikithamayreddy56@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/nikitha-mayreddy-b80055356" target="_blank" style="color:#ffcc00;">linkedin.com/in/nikitha-mayreddy-b80055356</a></p>
+    <p>GitHub: <a href="https://github.com/Nikithamayreddy56" target="_blank" style="color:#ffcc00;">github.com/Nikithamayreddy56</a></p>
   </section>
 
   <footer>
-    &copy; 2025 M Nikitha. Built with ❤️ and HTML/CSS.
+    &copy; 2025 Nikitha Mayreddy. Built with ❤️ and HTML/CSS.
   </footer>
+
+  <!-- Modals for Education -->
+  <div id="modal-masters" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-masters-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3 id="modal-masters-title">Master of Science in Computer Science</h3>
+      <p><strong>Concordia University Wisconsin</strong>, Mequon, WI</p>
+      <p><strong>Graduated:</strong> May 2025 | <strong>GPA:</strong> 3.2/4.0</p>
+      <p>Relevant Coursework: Cloud Computing, Distributed Systems, Software Architecture, Machine Learning, Web & Mobile App Development.</p>
+      <p><em>No extracurricular activities.</em></p>
+    </div>
+  </div>
+
+  <div id="modal-bachelors" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-bachelors-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3 id="modal-bachelors-title">Bachelor of Technology in Electronics and Communications Engineering</h3>
+      <p><strong>Sri Indu Institute of Engineering and Technology</strong>, India</p>
+      <p><strong>Graduated:</strong> Aug 2021 | <strong>GPA:</strong> 6.88/10</p>
+      <p>Projects: Facial Recognition Attendance System, E-Commerce Web App.</p>
+      <p>Final Year Project: Scalable IoT-based Smart Home Automation using MQTT.</p>
+      <p>Certifications: Oracle Java SE, Introduction to Data Science (NPTEL).</p>
+    </div>
+  </div>
+
+  <!-- Modals for Certifications -->
+  <div id="modal-az900" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-az900-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3 id="modal-az900-title">Microsoft Certified: Azure Fundamentals (AZ-900)</h3>
+      <p>Issued by Microsoft | March 15, 2022</p>
+      <p>
+        Validates foundational knowledge of cloud services, core Azure architecture, pricing, SLA, and support. Demonstrates understanding of cloud concepts, Azure services, workloads, security, and governance.
+      </p>
+    </div>
+  </div>
+
+  <div id="modal-sysadmin" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-sysadmin-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3 id="modal-sysadmin-title">Career Essentials in System Administration</h3>
+      <p>Issued by Microsoft & LinkedIn Learning | July 21, 2025</p>
+      <p>
+        Covers OS fundamentals, command-line operations, user/permission management, patching, backup/recovery, automation with PowerShell/Shell scripting. Enhances deployment and environment management skills.
+      </p>
+      <p><em>Certificate ID: de50a270d5779ab22b9266f0f48e0ba1a7e0fb46d6b4f12252f9cd38a19083ec</em></p>
+    </div>
+  </div>
+
+  <div id="modal-typist" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-typist-title" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3 id="modal-typist-title">Certified Junior Grade & Lower-Level Typist</h3>
+      <p>Scores: 97% and 92%</p>
+    </div>
+  </div>
+
+  <script>
+    // Modal functionality
+    const modals = document.querySelectorAll('.modal');
+    const modalTriggers = document.querySelectorAll('[data-modal]');
+    const modalCloses = document.querySelectorAll('.modal-close');
+
+    modalTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const modalId = trigger.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('active');
+          modal.querySelector('.modal-close').focus();
+        }
+      });
+    });
+
+    modalCloses.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.modal').classList.remove('active');
+      });
+    });
+
+    // Close modal on outside click
+    modals.forEach(modal => {
+      modal.addEventListener('click', e => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    });
+
+    // Keyboard accessibility: close modals on ESC
+    window.addEventListener('keydown', e => {
+      if(e.key === "Escape") {
+        modals.forEach(modal => modal.classList.remove('active'));
+      }
+    });
+
+    // Expand/collapse for Experience and Projects
+    const toggles = document.querySelectorAll('[data-toggle]');
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const targetId = toggle.getAttribute('data-toggle');
+        const details = document.getElementById(targetId + '-details');
+        if (details) {
+          const isHidden = details.hasAttribute('hidden');
+          if (isHidden) {
+            details.removeAttribute('hidden');
+            toggle.setAttribute('aria-expanded', 'true');
+          } else {
+            details.setAttribute('hidden', '');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+      // For accessibility, also toggle with Enter/Space key
+      toggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle.click();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
